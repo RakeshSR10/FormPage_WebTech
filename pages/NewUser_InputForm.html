@@ -12,20 +12,26 @@
             <!--UC1 - User First Name -->
             <div>
                 <label for="text">Enter Your First Name: </label>
-                <input type="text" id="text" name="text">
+                <input type="text" id="text" name="text" placeholder="enter your first name">
                 <error-output class="text-error" for="text"></error-output>
             </div>
             <!--UC2 - User Email -->
             <div>
                 <label for="email">Enter Your Valid Email : </label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" placeholder="enter your valid email">
                 <error-output class="email-error" for="email"></error-output>
             </div>
             <!--UC3 - User Mobile Number -->
             <div>
                 <label for="number">Enter Your Mob-Number : </label>
-                <input type="number" id="number" name="number">
+                <input type="number" id="number" name="number" placeholder="enter your current number">
                 <error-output class="number-error" for="number"></error-output>
+            </div>
+            <!--UC4 - User Password with minimum 8 character -->
+            <div>
+                <label for="pwd">Password Input: </label>
+                <input type="pwd" id="pwd" name="pwd" placeholder="enter your password">
+                <error-output class="pwd-error" for="pwd"></error-output>
             </div>
             <div>
                 <button>Submit</button>
@@ -60,6 +66,16 @@
                 if(numberRegex.test(number.value))
                     numberError.textContent = "";
                 else numberError.textContent = "Mobile Number should be 10 digit.";
+            });
+
+            /*UC4 - User Rule 1 Password validation */
+            const pwd = document.querySelector('#pwd');
+            const pwdError = document.querySelector('.pwd-error');
+            pwd.addEventListener('input', function() {
+                let passwordRegex = RegExp('^[A-Za-z0-9]{8,}$');
+                if(passwordRegex.test(pwd.value))
+                    pwdError.textContent = "";
+                else pwdError.textContent = "Password should be atleast 8 character.";
             });
         </script>
     </body>
