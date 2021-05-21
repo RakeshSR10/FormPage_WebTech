@@ -28,6 +28,7 @@
                 <error-output class="number-error" for="number"></error-output>
             </div>
             <!--UC4 - User Password with minimum 8 character -->
+            <!--UC5 - User Password with minimum 8 character -->
             <div>
                 <label for="pwd">Password Input: </label>
                 <input type="pwd" id="pwd" name="pwd" placeholder="enter your password">
@@ -69,10 +70,11 @@
             });
 
             /*UC4 - User Rule 1 Password validation */
+            /*UC5 - User Password validation with all the rules */
             const pwd = document.querySelector('#pwd');
             const pwdError = document.querySelector('.pwd-error');
             pwd.addEventListener('input', function() {
-                let passwordRegex = RegExp('^[A-Za-z0-9]{8,}$');
+                let passwordRegex = RegExp('^[A-Za-z]{1,}[!@#$%&*\]{1}[0-9]{1,}$');
                 if(passwordRegex.test(pwd.value))
                     pwdError.textContent = "";
                 else pwdError.textContent = "Password should be atleast 8 character.";
